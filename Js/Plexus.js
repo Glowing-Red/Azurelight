@@ -1,9 +1,10 @@
 const canvas = document.getElementById("Plexus Canvas");
 const ctx = canvas.getContext("2d");
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let particlesArray;
+let particlesArray = [];
 const colours = ['#264DE4', '#E34F26', '#D6BA32'];
 const plexusSpeed = 1;
 
@@ -65,6 +66,7 @@ class Particle {
 function init() {
    particlesArray = [];
    let numberOfParticles = (canvas.height * canvas.width) / 15000;
+
    for (let i = 0; i < numberOfParticles; i++) {
       let size = (RandomInteger(3000, 6000)/1000);
       let x = (Math.random() * ((innerWidth - size * 2) - (size * 2) + size * 2));
@@ -111,12 +113,12 @@ function animate() {
 
 // resize event
 window.addEventListener("resize",
-    function() {
-        canvas.width = this.innerWidth;
-        canvas.height = this.innerHeight;
+   function() {
+      canvas.width = this.innerWidth;
+      canvas.height = this.innerHeight;
         
-        init()
-    }
+      init()
+   }
 );
 
 init();
