@@ -10,9 +10,29 @@
 </head>
 <body>
    <div class="background">
+      <canvas id="Plexus Canvas" class="Plexus-Canvas"></canvas>
       <div class="blur">
          <div class="clip"></div>
       </div>
    </div>
+   <div class="Main">
+      <div></div>
+      <div></div>
+      <div></div>
+   </div>
+   
+   <script src="Js/Plexus.js"></script>
+   <script>
+      const clip = document.querySelector('.clip');
+      
+      window.addEventListener('scroll', () => {
+         const scrollPosition = window.scrollY;
+         const rotationAngle = 45 + scrollPosition / window.innerHeight * 1000;
+         const horizontalMovement = Math.sin(scrollPosition / 50) * 250;
+         const verticalMovement = Math.cos(scrollPosition / 50) * 250;
+
+         clip.style.transform = `translate(${horizontalMovement}px, ${verticalMovement}px) rotate(${rotationAngle}deg)`;
+      });
+   </script>
 </body>
 </html>
