@@ -20,7 +20,7 @@ html {
    width: 100vw;
    height: 100vh;
    display: block;
-   filter: blur(1px);
+   filter: blur(4px);
    z-index: 2;
 }
 
@@ -59,7 +59,6 @@ html {
 }
 
 .Main div {
-   background-color: #ffffff0a;
    width: 100vw;
    height: 100vh;
    margin-bottom: 10vh;

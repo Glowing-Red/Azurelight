@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="/Assets/Badges/Brackets.png" type="image/x-icon">
-    <title>Glowing Red's Cheat Sheet</title>
+    <link rel="icon" href="/Assets/Badges/Luna.png" type="image/x-icon">
+    <title>Lunazure</title>
 </head>
 <body>
    <div class="background">
@@ -27,9 +27,9 @@
       
       window.addEventListener('scroll', () => {
          const scrollPosition = window.scrollY;
-         const rotationAngle = 45 + scrollPosition / window.innerHeight * 1000;
-         const horizontalMovement = Math.sin(scrollPosition / 50) * 250;
-         const verticalMovement = Math.cos(scrollPosition / 50) * 250;
+         const rotationAngle = 45 + scrollPosition / window.innerHeight * 500;
+         const horizontalMovement = Math.sin(scrollPosition / 50) * 125;
+         const verticalMovement = Math.cos(scrollPosition / 50) * 125;
 
          clip.style.transform = `translate(${horizontalMovement}px, ${verticalMovement}px) rotate(${rotationAngle}deg)`;
       });
