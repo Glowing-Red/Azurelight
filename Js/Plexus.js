@@ -52,8 +52,8 @@ function RandomInteger(min, max) {
 
 // get mouse position
 let mouse = {
-    x: null,
-    y: null,
+    x: undefined,
+    y: undefined,
     radius: (canvas.height/80) * (canvas.width/80)
 }
 
@@ -63,6 +63,10 @@ let mouse = {
         mouse.y = event.y;
     }
 );*/
+
+document.addEventListener("scroll", function(event) {
+   console.log(event);
+});
 
 // create particle
 class Particle {
@@ -173,14 +177,6 @@ window.addEventListener("resize",
         init()
     }
 );
-
-//mouse out event
-window.addEventListener("mouseout",
-    function() {
-        mouse.x = undefined;
-        mouse.x = undefined;
-    }
-)
 
 init();
 animate();
