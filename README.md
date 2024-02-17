@@ -1,2 +1,2 @@
-# Cheat-Sheet-Hub
-Cheat Sheets for Myself, Me and I
+# Cheat Hub
+Cheat Sheets and Templates for Myself, Me and I
