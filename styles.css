@@ -41,34 +41,27 @@ body, html {
    position: relative;
    top: 0;
    left: 0;
-   width: 100vw;
+   
+   width: 100%;
    height: auto;
+   min-height: 100vh;
+
    display: flex;
-   flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
    z-index: 5;
 }
 
-.Main .box {
-   width: 100vw;
-   height: 100vh;
-   margin-bottom: 10vh;
-}
+.Centred {
+   background-color: red;
+   width: 80%;
+   height: 180vh;
 
-.Window {
-   position: relative;
-   background-color: rgba(0,0,0,0.8);
-   top: 10vh;
-   left: 0;
-   width: 75vw;
-   height: auto;
-   min-height: 75vh;
-   
-   margin-left: auto;
-   margin-right: auto;
-   margin-bottom: 20vh;
-   
+   margin-top: 10vh;
+   margin-bottom: 10vh;
+
+   background-color: rgba(0,0,0,0.7);
    border-radius: 8px;
    border: 1px solid #27272A;
-
-   z-index: 5;
 }
