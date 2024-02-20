@@ -7,6 +7,7 @@ function createLightBall() {
    const maxSize = Math.random() * 100 + 50; // Random max size between 50 and 150 pixels
    const lifetime = Math.random() * 3000 + 2000; // Random lifetime between 2000 and 5000 milliseconds
    const gradientDeg = Math.random() * 360; // Random gradient angle between 0 and 360 degrees
+   const filterBlur = Math.random() * 16 + 48;
    const { clientWidth, clientHeight } = canvas;
 
    const size = Math.random() * maxSize;
@@ -24,26 +25,27 @@ function createLightBall() {
    // Adjust gradientDeg to make it more visually noticeable
    let adjustedGradientDeg = gradientDeg;
    if (gradientDeg < 10 || gradientDeg > 350) {
-       adjustedGradientDeg += Math.random() * 10 - 5; // Add a small value to make it more visually noticeable
+      adjustedGradientDeg += Math.random() * 10 - 5; // Add a small value to make it more visually noticeable
    }
 
    ball.style.background = `linear-gradient(${adjustedGradientDeg}deg, rgba(0,173,255,1) 0%, rgba(179,0,255,1) 100%)`;
+   ball.style.filter = `blur(${filterBlur}px)`;
 
    // Fade in
    setTimeout(() => {
-       ball.style.opacity = 1;
+      ball.style.opacity = 1;
    }, 500); // 500 milliseconds fade-in duration
 
    // Fade out and remove
    setTimeout(() => {
-       ball.style.transition = 'opacity 1s'; // 1 second fade-out duration
-       setTimeout(() => {
-           ball.style.opacity = 0;
-           setTimeout(() => {
-               ball.remove();
-           }, 1000); // Adjust this value to control the fade-out duration
-       }, 1000); // 1 second fade-out delay
-   }, 2000 + Math.random() * 1000); // Random lifetime between 2000 and 3000 milliseconds
+      ball.style.transition = 'opacity 1s'; // 1 second fade-out duration
+      setTimeout(() => {
+         ball.style.opacity = 0;
+         setTimeout(() => {
+            ball.remove();
+         }, 1000); // Adjust this value to control the fade-out duration
+      }, 1000); // 1 second fade-out delay
+   }, lifetime); // Random lifetime between 2000 and 3000 milliseconds
 }
 
-setInterval(createLightBall, 500); // adjust this value to control spawn frequency
+setInterval(createLightBall, 250); // adjust this value to control spawn frequency
