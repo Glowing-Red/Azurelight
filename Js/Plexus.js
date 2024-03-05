@@ -5,8 +5,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particlesArray = [];
-const colours = ['#264DE4', '#E34F26', '#D6BA32'];
-const plexusSpeed = 1;
+const colours = ['#264ce47d', '#e34f267e', '#d6bb3297'];
 
 // Optimized Math.random() function
 function RandomInteger(min, max) {
@@ -55,27 +54,11 @@ class Particle {
       }
       
       // move particle
-      this.x += this.directionX * plexusSpeed;
-      this.y += this.directionY * plexusSpeed;
+      this.x += this.directionX;
+      this.y += this.directionY;
 
       // draw particle
       this.draw();
-   }
-}
-
-function init() {
-   particlesArray = [];
-   let numberOfParticles = (canvas.height * canvas.width) / 15000;
-
-   for (let i = 0; i < numberOfParticles; i++) {
-      let size = (RandomInteger(3000, 6000)/1000);
-      let x = (Math.random() * ((innerWidth - size * 2) - (size * 2) + size * 2));
-      let y = (Math.random() * ((innerHeight - size * 2) - (size * 2) + size * 2));
-      let directionX = (Math.random() * 5) - 2;
-      let directionY = (Math.random() * 5) - 2;
-      let colour = this.colour;
-
-      particlesArray.push(new Particle(x, y, directionX, directionY, size, colour))
    }
 }
 
@@ -99,16 +82,32 @@ function connect() {
    }
 }
 
+function init() {
+   particlesArray = [];
+   let numberOfParticles = (canvas.height * canvas.width) / 15000;
+
+   for (let i = 0; i < numberOfParticles; i++) {
+      let size = (RandomInteger(3000, 6000)/1000);
+      let x = (Math.random() * ((innerWidth - size * 2) - (size * 2) + size * 2));
+      let y = (Math.random() * ((innerHeight - size * 2) - (size * 2) + size * 2));
+      let directionX = (Math.random() * 5) - 2;
+      let directionY = (Math.random() * 5) - 2;
+      let colour = this.colour;
+
+      particlesArray.push(new Particle(x, y, directionX, directionY, size, colour))
+   }
+}
+
 // animation loop
 function animate() {
-    requestAnimationFrame(animate);
-    ctx.clearRect(0,0,innerWidth, innerHeight);
+   requestAnimationFrame(animate);
+   ctx.clearRect(0,0,innerWidth, innerHeight);
 
-    for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update();
-    }
-    
-    connect();
+   for (let i = 0; i < particlesArray.length; i++) {
+      particlesArray[i].update();
+   }
+   
+   connect();
 }
 
 // resize event
